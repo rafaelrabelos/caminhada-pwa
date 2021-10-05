@@ -1,3 +1,7 @@
+html *
+{
+   font-family: 'Roboto', sans-serif !important;
+}
 body{
   padding: 1rem;
   align-content: center;
@@ -5,4 +9,98 @@ body{
 }
 h1{
   font-size: large;
+}
+
+/*containers*/
+.main-container{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.content-container{
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.small-container{
+  padding: auto;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+}
+.login-header{
+  align-content: center;
+}
+.login-header-logo{
+  border-radius: 8px;
+  opacity: 0.8;
+}
+.login-header-logo img {
+  width: 30%;
+  height: auto;
+}
+
+/*texts*/
+.texts-gray{
+  color: darkgrey;
+  font-size: 1.1rem;
+}
+.texts-orange{
+  color: #ee6e57;
+  font-size: 1.1rem;
+}
+.texts-title-upper{
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+.texts-descriptions{
+  font-size: 0.7rem;
+}
+.texts-small{
+  font-size: 0.65rem;
+}
+
+.btn{
+  border-style: solid;
+  border-width:  1px;
+  border-radius: 7px;
+  background-color: rgb(255, 255, 255);
+  
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn-log-in{
+  width: 80%;
+  font-size: 0.8rem;
+  color: #ff6624e2;
+  background-color: rgb(255, 255, 255);
+  font-weight: bold;
+  text-transform: uppercase;
+  border-color: #f85f6998;
+  padding: 0.8rem;
+  margin: 0.9rem;
+  transition: all 0.3s ease 0s;
+}
+.btn-log-in:hover {
+  color: #ff6624;
+  border-color: #f85f69;
+  box-shadow: 0px 8px 15px rgba(250, 75, 75, 0.139);
+}
+
+/*Grid*/
+.row-line{
+  padding-top: 20px;
+}
+.block-five{
+  padding-top: 5%;
+}
+.block-teen{
+  padding-top: 10%;
+}
+.block-quarter{
+  padding-top: 25%;
+}
+.block-half{
+  padding-top: 50%;
 }

@@ -17,12 +17,25 @@ const loadOauthConfigs = async () => {
   gLoginSetCalbacks(googleLoginOnSuccess, googleLoginOnError);
 };
 
-googleLoginOnSuccess = (gData) => {
-  document.getElementById("login-info").innerText =
-    "Signed in: " + gData.getBasicProfile().getName();
-  console.log(gData.getBasicProfile());
+const googleLoginOnSuccess = (gData) => {
+  const gUserData = {
+    userId: gData.getBasicProfile().getId(),
+    userName: gData.getBasicProfile().getName(),
+    userFamilyName: gData.getBasicProfile().getFamilyName(),
+    userGivenName: gData.getBasicProfile().getGivenName(),
+    userEmail: gData.getBasicProfile().getEmail(),
+    userImgaeUrl: gData.getBasicProfile().getImageUrl(),
+  };
+
+  sessionUpdateData(gUserData);
+  sessionInit();
+  let sessionStatus = sessionStatus();
+
+  document.getElementById("login-info").innerText = `Signed in: ${gUserData.userName}`;
+  
 };
-googleLoginOnError = (err) => {
+
+const googleLoginOnError = (err) => {
   console.log(err.error);
 };
 

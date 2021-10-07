@@ -1,37 +1,36 @@
-html *
-{
-   font-family: 'Roboto', sans-serif !important;
+html * {
+  font-family: "Roboto", sans-serif !important;
 }
-body{
+body {
   padding: 1rem;
   align-content: center;
   text-align: center;
 }
-h1{
+h1 {
   font-size: large;
 }
 
 /*containers*/
-.main-container{
+.main-container {
   padding-left: 15px;
   padding-right: 15px;
 }
-.content-container{
+.content-container {
   padding-top: 10px;
   padding-left: 5px;
   padding-right: 5px;
 }
-.small-container{
+.small-container {
   padding: auto;
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
   text-align: center;
 }
-.login-header{
+.login-header {
   align-content: center;
 }
-.login-header-logo{
+.login-header-logo {
   border-radius: 8px;
   opacity: 0.8;
 }
@@ -41,36 +40,35 @@ h1{
 }
 
 /*texts*/
-.texts-gray{
+.texts-gray {
   color: darkgrey;
   font-size: 1.1rem;
 }
-.texts-orange{
+.texts-orange {
   color: #ee6e57;
   font-size: 1.1rem;
 }
-.texts-title-upper{
+.texts-title-upper {
   text-transform: uppercase;
   font-size: 0.75rem;
 }
-.texts-descriptions{
+.texts-descriptions {
   font-size: 0.7rem;
 }
-.texts-small{
+.texts-small {
   font-size: 0.65rem;
 }
 
-.btn{
+.btn {
   border-style: solid;
-  border-width:  1px;
+  border-width: 1px;
   border-radius: 7px;
   background-color: rgb(255, 255, 255);
-  
 }
 .btn:hover {
   transform: translateY(-2px);
 }
-.btn-log-in{
+.btn-log-in {
   width: 80%;
   font-size: 0.8rem;
   color: #ff6624e2;
@@ -90,22 +88,22 @@ h1{
 }
 
 /*Grid*/
-.row-line{
+.row-line {
   padding-top: 20px;
 }
-.block-five{
+.block-five {
   padding-top: 5%;
 }
-.block-teen{
+.block-teen {
   padding-top: 10%;
 }
-.block-quarter{
+.block-quarter {
   padding-top: 25%;
 }
-.block-half{
+.block-half {
   padding-top: 50%;
 }
-.cell-teen{
+.cell-teen {
   margin-left: auto;
   float: left !important;
 }

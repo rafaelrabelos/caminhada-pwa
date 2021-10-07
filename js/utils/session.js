@@ -7,13 +7,13 @@ let sessionData = {
   userImgaeUrl: null,
 };
 
-sessionUpdateData = (data = sessionData) => {
+const sessionUpdateData = (data = sessionData) => {
 
   Object.keys(data).forEach(dataItem => {
     sessionData[dataItem] = data[dataItem];
   });
 
-  if(sessionSatatus() == true){
+  if(sessionStatus() == true){
     sessionStorage.clear();
     sessionInit();
   }
@@ -21,7 +21,7 @@ sessionUpdateData = (data = sessionData) => {
   sessionData = data;
 }
 
-sessionInit = () => {
+const sessionInit = () => {
   sessionStorage.clear();
 
   Object.keys(sessionData).forEach(sessionItem => {
@@ -29,7 +29,7 @@ sessionInit = () => {
   });
 };
 
-sessionStatus = () => {
+const sessionStatus = () => {
   let status = true;
 
   Object.keys(sessionData).forEach(sessionItem => {

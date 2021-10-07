@@ -59,6 +59,10 @@ h1 {
   font-size: 0.65rem;
 }
 
+.profile-user-image{
+  border-radius: 50%;
+}
+
 .btn {
   border-style: solid;
   border-width: 1px;
@@ -85,6 +89,16 @@ h1 {
   border-color: #f85f69;
   box-shadow: 0px 8px 15px rgba(250, 75, 75, 0.139);
   cursor: pointer;
+}
+.btn-log-in:disabled{
+  transform: translateY(0px);
+  color: #676666e2;
+  border-color: #676666e2;
+  border-color: #acacac98;
+  box-shadow: 0px 8px 15px rgba(233, 233, 233, 0.139);
+}
+.btn-log-in:disabled:hover{
+  background-color: rgba(235, 233, 233, 0.865);
 }
 
 /*Grid*/

@@ -29,10 +29,15 @@ const googleLoginOnSuccess = (gData) => {
 
   sessionUpdateData(gUserData);
   sessionInit();
-  let sessionStatus = sessionStatus();
+  let statusSession = sessionStatus();
 
-  document.getElementById("login-info").innerText = `Signed in: ${gUserData.userName}`;
-  
+  if (statusSession == true) {
+    document.getElementById("user-name").innerText = gUserData.userName;
+    document.getElementById("user-img");
+    document.setAttribute("src", gUserData.userImgaeUrl);
+    document.getElementById("loged-in-component").removeAttribute("hidden");
+    document.getElementById("log-in-component").setAttribute("hidden", true);
+  }
 };
 
 const googleLoginOnError = (err) => {

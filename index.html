@@ -55,7 +55,28 @@
         </div>
       </div>
 
-      <div class="row-line block-quarter">
+      <div id="loged-in-component" class="row-line block-quarter" hidden>
+        <div>
+          <img class="profile-user-image" width="48" height="48" id="user-img" src="" />
+        </div>
+        <div id="logedin-info" class="texts-small">
+          <small>
+            Você está logado(a) como <b id="user-name"></b> <br />
+          </small> <a href="#">Sair</a>
+        </div>
+        <button id="btn-start" class="btn btn-log-in" disabled>
+          <div class="cell-teen">
+          </div>
+          Iniciar
+        </button>
+        <div id="start-info" class="texts-small">
+          <small class="texts-gray texts-small">
+            Para iniciar a caminhada aceite os termos e condições.
+          </small>
+        </div>
+      </div>
+
+      <div id="log-in-component" class="row-line block-quarter">
         <button id="g-login" class="btn btn-log-in">
           <div class="cell-teen">
             <!-- Google logo SVG -->

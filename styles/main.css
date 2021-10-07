@@ -86,6 +86,7 @@ h1{
   color: #ff6624;
   border-color: #f85f69;
   box-shadow: 0px 8px 15px rgba(250, 75, 75, 0.139);
+  cursor: pointer;
 }
 
 /*Grid*/
@@ -103,4 +104,8 @@ h1{
 }
 .block-half{
   padding-top: 50%;
+}
+.cell-teen{
+  margin-left: auto;
+  float: left !important;
 }

@@ -34,7 +34,7 @@ const googleLoginOnSuccess = (gData) => {
   if (statusSession == true) {
     document.getElementById("user-name").innerText = gUserData.userName;
     document.getElementById("user-img");
-    document.setAttribute("src", gUserData.userImgaeUrl);
+    document.getElementById("user-image").setAttribute("src", gUserData.userImgaeUrl);
     document.getElementById("loged-in-component").removeAttribute("hidden");
     document.getElementById("log-in-component").setAttribute("hidden", true);
   }

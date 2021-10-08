@@ -9,9 +9,9 @@ document.addEventListener(
 );
 
 const loadPageElementsActions = async () => {
-  var chk_UsingTermsElement = document.getElementById("chk-terms");
+  var chk_AceptTerms = document.getElementById("chk-terms");
 
-  chk_UsingTermsElement.onchange = handleUsingTermsChkChange;
+  chk_AceptTerms.onchange = handleUsingTermsChkChange;
 };
 
 const loadOauthConfigs = async () => {
@@ -38,7 +38,13 @@ const googleLoginOnError = (err) => {
 };
 
 const handleUsingTermsChkChange = (e) => {
-  console.log(sessionStatus());
+  var btn_Start = document.getElementById("btn-start");
+
+  if(e && e.target && e.target.checked){
+    btn_Start.removeAttribute('disabled');
+  }else{
+    btn_Start.setAttribute("disabled", true);
+  }
 };
 
 

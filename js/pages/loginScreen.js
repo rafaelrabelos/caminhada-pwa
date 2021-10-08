@@ -11,9 +11,11 @@ document.addEventListener(
 const loadPageElementsActions = async () => {
   let chk_acceptTerms = document.getElementById("chk-terms");
   let link_logOff = document.getElementById("log-out");
+  let btn_Start = document.getElementById("btn-start");
 
   chk_acceptTerms.onchange = handleAcceptTermsChkChange;
   link_logOff.onclick = handleLogOffLinkClick;
+  btn_Start.onclick = handleStartBtnClick;
 };
 
 const loadOauthConfigs = async () => {
@@ -72,3 +74,16 @@ const handleLogOffLinkClick = (e) => {
   sessionStorage.clear();
   loadPageComponents()
 }
+
+const handleStartBtnClick = (e) => {
+  let statusSession = sessionStatus();
+
+  if(statusSession == true){
+    navegateToWalking();
+  }else{
+    loadPageComponents();
+  }
+  
+}
+
+const navegateToWalking = () => window.location.href = './walking.html';

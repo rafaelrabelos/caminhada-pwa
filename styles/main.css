@@ -27,6 +27,13 @@ h1 {
   padding-right: 20px;
   text-align: center;
 }
+.walking-header{
+  align-content: center;
+  float:left;
+  margin-right: auto;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
 .login-header {
   align-content: center;
 }

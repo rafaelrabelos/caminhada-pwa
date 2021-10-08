@@ -34,7 +34,6 @@ const sessionStatus = () => {
 
   Object.keys(sessionData).forEach(sessionItem => {
     const sessionValue = sessionStorage.getItem(sessionItem);
-    console.log(`${sessionItem}: ${sessionValue}`);
     if(sessionValue == null || sessionValue == ''){
       status = false;
     }

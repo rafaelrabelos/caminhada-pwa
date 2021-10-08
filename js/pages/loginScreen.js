@@ -10,8 +10,10 @@ document.addEventListener(
 
 const loadPageElementsActions = async () => {
   let chk_acceptTerms = document.getElementById("chk-terms");
+  let link_logOff = document.getElementById("log-out");
 
   chk_acceptTerms.onchange = handleAcceptTermsChkChange;
+  link_logOff.onclick = handleLogOffLinkClick;
 };
 
 const loadOauthConfigs = async () => {
@@ -64,3 +66,9 @@ const handleAcceptTermsChkChange = (e) => {
     btn_Start.setAttribute("disabled", true);
   }
 };
+
+const handleLogOffLinkClick = (e) => {
+
+  sessionStorage.clear();
+  loadPageComponents()
+}

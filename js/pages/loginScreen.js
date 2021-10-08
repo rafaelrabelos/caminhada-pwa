@@ -2,6 +2,7 @@ document.addEventListener(
   "DOMContentLoaded",
   function () {
     loadPageElementsActions();
+    loadPageComponents();
     loadOauthConfigs();
   },
   false
@@ -29,21 +30,29 @@ const googleLoginOnSuccess = (gData) => {
 
   sessionUpdateData(gUserData);
   sessionInit();
-  let statusSession = sessionStatus();
-
-  if (statusSession == true) {
-    document.getElementById("user-name").innerText = gUserData.userName;
-    document.getElementById("user-img");
-    document.getElementById("user-image").setAttribute("src", gUserData.userImgaeUrl);
-    document.getElementById("loged-in-component").removeAttribute("hidden");
-    document.getElementById("log-in-component").setAttribute("hidden", true);
-  }
+  loadPageComponents();
 };
 
 const googleLoginOnError = (err) => {
   console.log(err.error);
 };
 
-handleUsingTermsChkChange = (e) => {
-  console.log(e.target.checked);
+const handleUsingTermsChkChange = (e) => {
+  console.log(sessionStatus());
+};
+
+
+const loadPageComponents = () => {
+
+  let statusSession = sessionStatus();
+  if (statusSession == true) {
+    document.getElementById("user-name").innerText = sessionStorage.getItem('userName');
+    document.getElementById("user-image").setAttribute("src", sessionStorage.getItem('userImgaeUrl'));
+    document.getElementById("loged-in-component").removeAttribute("hidden");
+    document.getElementById("log-in-component").setAttribute("hidden", true);
+  }else{
+    document.getElementById("loged-in-component").setAttribute("hidden", true);
+    document.getElementById("log-in-component").removeAttribute("hidden");
+  }
+
 };

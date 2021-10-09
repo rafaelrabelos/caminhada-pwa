@@ -54,26 +54,51 @@
     <!-- Question form -->
     <div class="row-line">
       <div class="texts-descriptions">
-        <p>
+        <p id="question">
           Você possui plano de saúde?
         </p>
-        <hr>
+        <br />
       </div>
+      <div class="question-radio texts-descriptions">
+        <div>
+          <input type="radio" id="radio-yes" name="walking-form" value="true" checked>
+          <label for="radio-yes">Sim</label>
+        </div>
+        <div>
+          <input type="radio" id="radio-no" name="walking-form" value="false">
+          <label for="radio-no">Não</label>
+        </div>
+      </div>
+      <hr>
     </div>
 
     <!-- Walking info -->
-    <div class="block-teen">
+    <div class="walkers-container">
       <div class="row-line">
-        <div class="texts-descriptions">
+        <div class="texts-descriptions texts-gray user-in-walk">
           <img id="user-image" class="profile-user-image" width="32" height="32" id="user-img" src="" />
+          <div id="user-name-in-walk"></div>
         </div>
+        <div class="texts-descriptions texts-gray user-in-walk">
+          <img id="user-image" class="profile-user-image" width="32" height="32" id="user-img" src="" />
+          <div id="user-name-in-walk">Alison Dias</div>
+        </div>
+        <div class="texts-descriptions texts-gray user-in-walk">
+          <img id="user-image" class="profile-user-image" width="32" height="32" id="user-img" src="" />
+          <div id="user-name-in-walk">Lucas</div>
+        </div>
+        <div class="texts-descriptions texts-gray user-in-walk">
+          <img id="user-image" class="profile-user-image" width="32" height="32" id="user-img" src="" />
+          <div id="user-name-in-walk">Alessa</div>
+        </div>
+        
       </div>
     </div>
   </div>
 
   <!-- Footer -->
-  <div class="row-line">
-    <div id="log-in-component" class="row-line block-quarter">
+  <div class="footer-container">
+    <div class="row-line">
       <button id="btn-next" class="btn btn-default btn-log-in">
         Proximo
       </button>

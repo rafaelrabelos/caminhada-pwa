@@ -9,7 +9,11 @@ body {
 h1 {
   font-size: large;
 }
-
+hr {
+  border-style:solid;
+  border-width: 0.5px;
+  border-color: rgba(220, 220, 220, 0.742);
+}
 /*containers*/
 .main-container {
   padding-left: 15px;
@@ -22,12 +26,35 @@ h1 {
   padding-left: 5px;
   padding-right: 5px;
 }
+.user-in-walk{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0.7rem;
+}
+.walkers-container{
+  width: auto;
+  position: absolute;
+}
+.footer-container{
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  padding-bottom: 15%;
+}
 .small-container {
   padding: auto;
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
   text-align: center;
+}
+.question-radio{
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
 }
 .walking-header{
   display: flex;

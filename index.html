@@ -37,10 +37,12 @@
 <body>
   <div class="row-line">
     <div class="login-header">
-      <div class="login-header-logo">
-        <img src="assets/imagens/icones/android/mipmap-xxxhdpi/ic_launcher.png" />
+      <div class="logo-default">
+        <div class="logo logo-xg">
+          <img src="assets/imagens/icones/android/mipmap-xxxhdpi/ic_launcher.png" />
+        </div>
+        <div class="texts-gray texts-title-upper">Meus privilégios</div>
       </div>
-      <div class="texts-gray texts-title-upper">Meus privilégios</div>
     </div>
   </div>
 
@@ -64,8 +66,8 @@
             Você está logado(a) como <b id="user-name"></b> <br />
           </small> <a id="log-out" href="#">Sair</a>
         </div>
-        <button id="btn-start" class="btn btn-log-in" disabled>
-          <div class="cell-teen">
+        <button id="btn-start" class="btn btn-default btn-log-in" disabled>
+          <div class="cell">
           </div>
           Iniciar
         </button>
@@ -77,10 +79,10 @@
       </div>
 
       <div id="log-in-component" class="row-line block-quarter" hidden>
-        <button id="g-login" class="btn btn-log-in">
-          <div class="cell-teen">
+        <button id="g-login" class="btn btn-default btn-log-in btn-outline">
+          <div class="cell svg-google">
             <!-- Google logo SVG -->
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 48 48"
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 48 48"
               class="abcRioButtonSvg">
               <g>
                 <path fill="#EA4335"
@@ -99,7 +101,7 @@
               </g>
             </svg>
           </div>
-          Entrar
+          <div>Entrar</div>
         </button>
         <div id="login-info" class="texts-small">
           <small>

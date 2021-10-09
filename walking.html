@@ -33,42 +33,52 @@
 </head>
 
 <body>
+  <!-- Top info -->
   <div class="row-line">
     <div class="walking-header">
-      <div>
-        <img class="profile-user-image" width="48" height="48" src="assets/imagens/icones/android/mipmap-xxxhdpi/ic_launcher.png" />
+      <div class="logo-horizontal">
+        <div class="logo logo-sm">
+          <img src="assets/imagens/icones/android/mipmap-xxxhdpi/ic_launcher.png" />
+        </div>
+        <div class="texts-gray texts-title-upper">Meus privilégios</div>
       </div>
-      <div class="texts-gray texts-title-upper">Meus privilégios</div>
+      
       <div id="logedin-info" class="texts-small">
         <small>
-          <b id="user-name"></b> | </small> <a id="log-out" href="#">Sair</a>
+          <b id="user-name"></b> </small> <br /><a id="log-out" href="#">Sair</a>
       </div>
     </div>
   </div>
 
   <div class="main-container">
-    <div class="block-teen">
-      <div class="row-line">
-        <div class="texts-descriptions">
-          <p>
-            Você possui plano de saúde?
-          </p>
-        </div>
-      </div>
-      <hr>
-      <div class="row-line">
-        <div class="texts-descriptions">
-          <img id="user-image" class="profile-user-image" width="32" height="32" id="user-img" src="" />
-        </div> 
-      </div>
-
-      <div id="log-in-component" class="row-line block-quarter">
-        <button id="btn-next" class="btn btn-log-in">
-          Proximo
-        </button>
+    <!-- Question form -->
+    <div class="row-line">
+      <div class="texts-descriptions">
+        <p>
+          Você possui plano de saúde?
+        </p>
+        <hr>
       </div>
     </div>
 
+    <!-- Walking info -->
+    <div class="block-teen">
+      <div class="row-line">
+        <div class="texts-descriptions">
+          <img id="user-image" class="profile-user-image" width="32" height="32" id="user-img" src="" />
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Footer -->
+  <div class="row-line">
+    <div id="log-in-component" class="row-line block-quarter">
+      <button id="btn-next" class="btn btn-default btn-log-in">
+        Proximo
+      </button>
+    </div>
+  </div>
+
 </body>
 </html>

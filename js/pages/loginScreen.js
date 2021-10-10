@@ -32,9 +32,12 @@ const googleLoginOnSuccess = (gData) => {
     userImgaeUrl: gData.getBasicProfile().getImageUrl(),
   };
 
-  sessionUpdateData(gUserData);
+  storeLocalData(gUserData);
   sessionInit();
-  loadPageComponents();
+
+  if(sessionStatus() == true){
+    loadPageComponents();
+  }
 };
 
 const googleLoginOnError = (err) => {
@@ -43,8 +46,11 @@ const googleLoginOnError = (err) => {
 
 const loadPageComponents = () => {
 
-  let statusSession = sessionStatus();
-  if (statusSession == true) {
+  if(localStorageHasData()){
+    sessionInit();
+  }
+
+  if (sessionStatus()) {
     document.getElementById("user-name").innerText = sessionStorage.getItem('userName');
     document.getElementById("user-image").setAttribute("src", sessionStorage.getItem('userImgaeUrl'));
     document.getElementById("loged-in-component").removeAttribute("hidden");
@@ -53,7 +59,6 @@ const loadPageComponents = () => {
     document.getElementById("loged-in-component").setAttribute("hidden", true);
     document.getElementById("log-in-component").removeAttribute("hidden");
   }
-
 };
 
 /*
@@ -70,8 +75,8 @@ const handleAcceptTermsChkChange = (e) => {
 };
 
 const handleLogOffLinkClick = (e) => {
-
   sessionStorage.clear();
+  localStorage.clear();
   loadPageComponents()
 }
 

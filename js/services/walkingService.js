@@ -3,9 +3,10 @@ Mocked services
 */
 class WalkingService {
   
-  getWalkingUsers = async (walkingGroup) => {
+  getWalkingUsers = async (walkingGroupId) => {
     
     // For mock: it is a data response from an API
+    const usersStorageKeyName = `walkingUsers-${walkingGroupId}`
     let apiMockUsers = [
       {
         userId: sessionStorage.getItem("userId"),
@@ -35,12 +36,12 @@ class WalkingService {
 
     //when the api is off, i get info from local
     if(!apiMockUsers){
-      let localWalkingUsers = localStorage.getItem("walkingDataUsers");
+      let localWalkingUsers = localStorage.getItem(usersStorageKeyName);
 
       if(!localWalkingUsers){
         return [];
       }
-      return localWalkingUsers;
+      return JSON.parse(localWalkingUsers);
     }
 
     for (let userIdx = 0; userIdx < apiMockUsers.length; userIdx++) {
@@ -52,7 +53,7 @@ class WalkingService {
       apiMockUsers[userIdx] = await this.mockUserInfo(user);
 
     }
-
+    localStorage.setItem(usersStorageKeyName, JSON.stringify(apiMockUsers));
     return apiMockUsers;
   }
 

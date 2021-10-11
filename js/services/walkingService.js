@@ -58,7 +58,7 @@ class WalkingService {
 
   mockUserInfo = (user) => {
 
-    return new Promise(function (resolve, reject) {
+    return new Promise((resolve, reject) => {
       var request = new XMLHttpRequest();
       request.open("GET", "https://randomuser.me/api/");
       request.responseType = "json";

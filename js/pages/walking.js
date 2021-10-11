@@ -110,6 +110,43 @@ const getWalkingQuestionHtml = async (groupId, questionNum = 0) => {
   };
 };
 
+const updatePositions = () => {
+  const questionNum = sessionStorage.getItem("walkingActiveQuestionNum");
+  const groupId = localStorage.getItem("walkingGroupId");
+  const usersWalking = JSON.parse(
+    sessionStorage.getItem(`walkingUsers-${groupId}`)
+  );
+  const questions = JSON.parse(sessionStorage.getItem(
+    `walkingQuestions-${groupId}`
+  ));
+  const walkingService = new WalkingService();
+  const answers = walkingService.getQuestionsAnswers(groupId);  
+  
+  usersWalking.map(user => {
+
+    const userAnswers = answers.filter(
+      (answer) => (answer.userId == user.userId)
+    );
+
+    const answeredQuestions = userAnswers.map(
+      (Answer) =>
+        questions.filter((question) => Answer.questionId == question.id)[0]
+    );
+
+    const points = answeredQuestions
+      .map((question) => {
+        const answer = userAnswers.filter(
+          (userAnswer) => userAnswer.questionId == question.id
+        )[0];
+        const options = question.options.filter(
+          (opt) => answer.anwserId == opt.answerId
+        )[0];
+        return options.value;
+      })
+      .reduce((ac, a) => ac + a, 0);
+  });
+}
+
 /*
 event Handlers
 */
@@ -144,6 +181,7 @@ const handleBtnNextClick = (e) => {
     return;
   }else{
     sessionStorage.setItem("walkingActiveQuestionNum", ++questionNum);
+    updatePositions();
     loadPageComponents();
   }
 };

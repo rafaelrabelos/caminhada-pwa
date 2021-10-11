@@ -138,7 +138,7 @@ class WalkingService {
         options: [
           { answer: "Curso", value: 1, answerId: "yes-1" },
           { answer: "Conclui", value: 2, answerId: "yes-2" },
-          { answer: "Não ingressei", value: -1, answerid: "no" },
+          { answer: "Não ingressei", value: -1, answerId: "no" },
         ],
       },
       {
@@ -146,7 +146,7 @@ class WalkingService {
         question: "Sua orientação sexual é usada como xingamento?",
         options: [
           { answer: "Sim", value: -1, answerId: "yes" },
-          { answer: "Não", value: 1, answerid: "no" },
+          { answer: "Não", value: 1, answerId: "no" },
         ],
       },
     ];
@@ -166,17 +166,37 @@ class WalkingService {
   }
 
   updateQuestionAnwser = (groupId, userId, questionId, anwserId) => {
-    const anwserdata = {
+    const answersQuestionsKeyName = `answerQuestions-${groupId}`;
+    const anwsersData = {
       groupId,
       userId,
       questionId,
       anwserId
+    };
+    let answers = localStorage.getItem(answersQuestionsKeyName);
+
+    if(!answers){
+      localStorage.setItem(answersQuestionsKeyName, JSON.stringify([anwsersData]));
     }
-    console.log(anwserdata);
+    else{
+
+      answers = (JSON.parse(answers)).filter((answer) => {
+        const matcing =
+          answer.questionId === anwsersData.questionId &&
+          answer.userId === anwsersData.userId &&
+          answer.groupId === anwsersData.groupId;
+        return !matcing;
+      });
+
+      answers.push(anwsersData);
+      localStorage.setItem(answersQuestionsKeyName, JSON.stringify(answers));
+    }
   }
-
-  getQuestionAnswer = (groupId, questionId) => {
-
+  
+  getQuestionsAnswers = (groupId, userId) => {
+    const answersQuestionsKeyName = `answerQuestions-${groupId}`;
+    let answers = localStorage.getItem(answersQuestionsKeyName);
+    return JSON.parse(answers);
   }
 
 }

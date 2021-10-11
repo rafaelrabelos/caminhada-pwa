@@ -32,6 +32,24 @@ class WalkingService {
         userImgaeUrl: null,
         userGivenName:  null,
       },
+      {
+        userId: '',
+        userName: null,
+        userImgaeUrl: null,
+        userGivenName:  null,
+      },
+      {
+        userId: '',
+        userName: null,
+        userImgaeUrl: null,
+        userGivenName:  null,
+      },
+      {
+        userId: '',
+        userName: null,
+        userImgaeUrl: null,
+        userGivenName:  null,
+      }
     ];
 
     //when the api is off, i get info from local
@@ -72,7 +90,7 @@ class WalkingService {
         ) {
           let randUser = request.response.results[0];
 
-          user.userId = randUser.id.value;
+          user.userId = randUser.login.md5.substring(1, 6);
           user.userImgaeUrl = randUser.picture.large;
           user.userName = `${randUser.name.titlw} ${randUser.name.first} ${randUser.name.last}`;
           user.userGivenName = randUser.name.first;
@@ -110,7 +128,7 @@ class WalkingService {
     const apiMockWalkingQuestions = [
       {
         id: "001",
-        question: "Você possui plano de saúde?",
+        question: "Se tem plano de saúde particular, dê um sim",
         options: [
           { answer: "Sim", value: 1, answerId: "yes" },
           { answer: "Não", value: 0, answerId: "no" },
@@ -118,15 +136,15 @@ class WalkingService {
       },
       {
         id: "002",
-        question: "Você possui ensino fundamental comleto?",
+        question: "Se já teve que escolher entre carreira e ter filhos/filhas, dê um sim",
         options: [
-          { answer: "Sim", value: 1, answerId: "yes" },
-          { answer: "Não", value: 0, answerId: "no" },
+          { answer: "Sim", value: -1, answerId: "yes" },
+          { answer: "Não", value: 1, answerId: "no" },
         ],
       },
       {
         id: "003",
-        question: "Você possui ensino médio comleto?",
+        question: "Se veio de um ambiente familiar que lhe apoiava em seus projetos e ambições, dê um sim",
         options: [
           { answer: "Sim", value: 1, answerId: "yes" },
           { answer: "Não", value: 0, answerId: "no" },
@@ -134,19 +152,43 @@ class WalkingService {
       },
       {
         id: "004",
-        question: "Você cursa ou concluiu o ensino superior?",
+        question: "Você pode entrar e cursa ou concluiu o ensino superior?",
         options: [
-          { answer: "Curso", value: 1, answerId: "yes-1" },
+          { answer: "Cursando", value: 1, answerId: "yes-1" },
           { answer: "Conclui", value: 2, answerId: "yes-2" },
           { answer: "Não ingressei", value: -1, answerId: "no" },
         ],
       },
       {
         id: "005",
-        question: "Sua orientação sexual é usada como xingamento?",
+        question: "Se sua orientação sexual é usada como xingamento, de um sim",
         options: [
           { answer: "Sim", value: -1, answerId: "yes" },
           { answer: "Não", value: 1, answerId: "no" },
+        ],
+      },
+      {
+        id: "006",
+        question: "Se seguranças de estabelecimentos comerciais lhe seguem, dê um sim.",
+        options: [
+          { answer: "Sim", value: -1, answerId: "yes" },
+          { answer: "Não", value: 1, answerId: "no" },
+        ],
+      },
+      {
+        id: "007",
+        question: "Se seu comportamento (e, em especial, seus erros) são atribuídos ao seu gênero, dê um sim",
+        options: [
+          { answer: "Sim", value: -1, answerId: "yes" },
+          { answer: "Não", value: 1, answerId: "no" },
+        ],
+      },
+      {
+        id: "008",
+        question: "Se demonstra afeto por seu companheiro ou companheira em público sem medo de ridicularização ou violência, dê um sim",
+        options: [
+          { answer: "Sim", value: 1, answerId: "yes" },
+          { answer: "Não", value: -1, answerId: "no" },
         ],
       },
     ];
@@ -165,7 +207,7 @@ class WalkingService {
     return apiMockWalkingQuestions;
   }
 
-  updateQuestionAnwser = (groupId, userId, questionId, anwserId) => {
+  updateQuestionAnwser = (groupId, userId, questionId, anwserId, mockAditionalUserAnswers = false) => {
     const answersQuestionsKeyName = `answerQuestions-${groupId}`;
     const anwsersData = {
       groupId,
@@ -191,12 +233,40 @@ class WalkingService {
       answers.push(anwsersData);
       localStorage.setItem(answersQuestionsKeyName, JSON.stringify(answers));
     }
+
+    if(mockAditionalUserAnswers){
+      const usersId = JSON.parse(
+        sessionStorage.getItem(`walkingUsers-${groupId}`)
+      )
+        .filter((user) => user.userId !== userId)
+        .map((user) => user.userId);
+      this.addMockAnswersToUsers(groupId, usersId, questionId)
+    }
   }
   
   getQuestionsAnswers = (groupId, userId) => {
     const answersQuestionsKeyName = `answerQuestions-${groupId}`;
     let answers = localStorage.getItem(answersQuestionsKeyName);
     return JSON.parse(answers);
+  }
+
+  addMockAnswersToUsers = (groupId, usersId=[], questionId) => {
+
+    const questions = JSON.parse(
+      sessionStorage.getItem(`walkingQuestions-${groupId}`)
+    );
+    const questionOptions = questions.filter((q) => q.id == questionId)[0]
+      .options;
+
+    usersId.forEach(userId => {
+      const anwserId =
+        questionOptions[Math.floor(Math.random() * questionOptions.length)]
+          .answerId;
+
+      this.updateQuestionAnwser(groupId, userId, questionId, anwserId)
+    });
+
+    
   }
 
 }

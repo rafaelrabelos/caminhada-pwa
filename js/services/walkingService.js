@@ -33,9 +33,14 @@ class WalkingService {
       },
     ];
 
-    //whe the api is off, i get info from local
+    //when the api is off, i get info from local
     if(!apiMockUsers){
-      return localStorage.getItem("walkingUsers");
+      let localWalkingUsers = localStorage.getItem("walkingDataUsers");
+
+      if(!localWalkingUsers){
+        return [];
+      }
+      return localWalkingUsers;
     }
 
     for (let userIdx = 0; userIdx < apiMockUsers.length; userIdx++) {

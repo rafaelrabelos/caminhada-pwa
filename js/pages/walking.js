@@ -111,7 +111,6 @@ const getWalkingQuestionHtml = async (groupId, questionNum = 0) => {
 };
 
 const updatePositions = () => {
-  const questionNum = sessionStorage.getItem("walkingActiveQuestionNum");
   const groupId = localStorage.getItem("walkingGroupId");
   const usersWalking = JSON.parse(
     sessionStorage.getItem(`walkingUsers-${groupId}`)

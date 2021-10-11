@@ -15,7 +15,7 @@ window.attachGoogleLogin = () => {
 gLoginInitAuth = () =>
   gapi.auth2.init({
     client_id:
-      "222678136207-0tcvlmfo13r0f0fkp227bp3b2m44cukg.apps.googleusercontent.com",
+      "222678136207-sv3nqaune81n37qptf10a3abg8k5ua2b.apps.googleusercontent.com",
     cookiepolicy: "single_host_origin",
   });
 

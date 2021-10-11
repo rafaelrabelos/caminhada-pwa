@@ -43,11 +43,11 @@ const loadPageElementsActions = async () => {
   link_logOff.onclick = handleLogOffLinkClick;
 };
 
-const getWalkingUsersHtml = async (walkingGroup) => {
-  const walkingService = new WalkingService();
-  const walkingUsers = await walkingService.getWalkingUsers(walkingGroup);
+const getWalkingUsersHtml = async (walkingGroupId) => {
+  
+  const walkingUsersStr = sessionStorage.getItem(`walkingUsers-${walkingGroupId}`);
 
-  const userList = walkingUsers.map((user) => {
+  const userList = JSON.parse(walkingUsersStr).map((user) => {
     return `<div class="texts-descriptions texts-gray user-in-walk">
         <img id="user-${user.userId}-image" class="profile-user-image" width="32" height="32" src="${user.userImgaeUrl}" />
         <div id="user-name-in-walk">${user.userGivenName}</div>

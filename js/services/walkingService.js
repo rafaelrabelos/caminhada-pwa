@@ -3,10 +3,10 @@ Mocked services
 */
 class WalkingService {
   
-  getWalkingUsers = async (walkingGroupId) => {
+  getWalkingUsers = async (groupId) => {
     
     // For mock: it is a data response from an API
-    const usersStorageKeyName = `walkingUsers-${walkingGroupId}`
+    const usersStorageKeyName = `walkingUsers-${groupId}`
     let apiMockUsers = [
       {
         userId: sessionStorage.getItem("userId"),
@@ -104,9 +104,9 @@ class WalkingService {
     return groupId;
   }
 
-  getGroupQuestions = async (walkingGroupId) => {
+  getGroupQuestions = async (groupId) => {
     // For mock: it is a data response from an API
-    const questionsStorageKeyName = `walkingQuestions-${walkingGroupId}`;
+    const questionsStorageKeyName = `walkingQuestions-${groupId}`;
     const apiMockWalkingQuestions = [
       {
         id: "001",
@@ -139,6 +139,14 @@ class WalkingService {
           { answer: "Curso", value: 1, answerId: "yes-1" },
           { answer: "Conclui", value: 2, answerId: "yes-2" },
           { answer: "Não ingressei", value: -1, answerid: "no" },
+        ],
+      },
+      {
+        id: "005",
+        question: "Sua orientação sexual é usada como xingamento?",
+        options: [
+          { answer: "Sim", value: -1, answerId: "yes" },
+          { answer: "Não", value: 1, answerid: "no" },
         ],
       },
     ];

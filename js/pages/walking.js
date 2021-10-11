@@ -9,20 +9,20 @@ document.addEventListener(
 );
 
 const loadPageStorage = async () => {
-  const walkingGroupId = localStorage.getItem("walkingGroupId");
+  const groupId = localStorage.getItem("walkingGroupId");
   const walkingService = new WalkingService();
   const walkingQuestions = await walkingService.getGroupQuestions(
-    walkingGroupId
+    groupId
   );
-  const walkingUsers = await walkingService.getWalkingUsers(walkingGroupId);
+  const walkingUsers = await walkingService.getWalkingUsers(groupId);
 
   sessionStorage.setItem("walkingActiveQuestionNum", "0");
   sessionStorage.setItem(
-    `walkingQuestions-${walkingGroupId}`,
+    `walkingQuestions-${groupId}`,
     JSON.stringify(walkingQuestions)
   );
   sessionStorage.setItem(
-    `walkingUsers-${walkingGroupId}`,
+    `walkingUsers-${groupId}`,
     JSON.stringify(walkingUsers)
   );
 };
@@ -60,9 +60,9 @@ const loadPageElementsActions = async () => {
   btn_next.onclick = handleBtnNextClick;
 };
 
-const getWalkingUsersHtml = async (walkingGroupId) => {
+const getWalkingUsersHtml = async (groupId) => {
   const walkingUsersStr = sessionStorage.getItem(
-    `walkingUsers-${walkingGroupId}`
+    `walkingUsers-${groupId}`
   );
 
   const userList = JSON.parse(walkingUsersStr).map((user) => {
@@ -119,8 +119,6 @@ const handleLogOffLinkClick = (e) => {
 };
 
 const handleBtnNextClick = (e) => {
-  
-  
   const groupId = localStorage.getItem("walkingGroupId");
   const questions = JSON.parse(
     sessionStorage.getItem(`walkingQuestions-${groupId}`)

@@ -104,4 +104,53 @@ class WalkingService {
     return groupId;
   }
 
+  getGroupQuestions = async (walkingGroupId) => {
+    // For mock: it is a data response from an API
+    const questionsStorageKeyName = `walkingQuestions-${walkingGroupId}`;
+    const apiMockWalkingQuestions = [
+      {
+        question: "Você possui plano de saúde?",
+        options: [
+          { answer: "Sim", value: 1 },
+          { answer: "Não", value: 0 },
+        ],
+      },
+      {
+        question: "Você possui ensino fundamental comleto?",
+        options: [
+          { answer: "Sim", value: 1 },
+          { answer: "Não", value: 0 },
+        ],
+      },
+      {
+        question: "Você possui ensino médio comleto?",
+        options: [
+          { answer: "Sim", value: 1 },
+          { answer: "Não", value: 0 },
+        ],
+      },
+      {
+        question: "Você cursa ou concluiu o ensino superior?",
+        options: [
+          { answer: "Curso", value: 1 },
+          { answer: "Conclui", value: 2 },
+          { answer: "Não ingressei", value: -1 },
+        ],
+      },
+    ];
+
+    //when the api is off, i get info from local
+    if(!apiMockWalkingQuestions){
+      let localWalkingQuestions = localStorage.getItem(questionsStorageKeyName);
+
+      if(!localWalkingQuestions){
+        return [];
+      }
+      return JSON.parse(localWalkingQuestions);
+    }
+
+    localStorage.setItem(questionsStorageKeyName, JSON.stringify(apiMockWalkingQuestions));
+    return apiMockWalkingQuestions;
+  }
+
 }

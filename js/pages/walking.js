@@ -1,11 +1,23 @@
 document.addEventListener(
   "DOMContentLoaded",
-  () => {
+  async () => {
+    await loadPageStorage();
     loadPageElementsActions();
     loadPageComponents();
   },
   false
 );
+
+const loadPageStorage = async () => {
+  const walkingGroupId = localStorage.getItem("walkingGroupId");
+  const walkingService = new WalkingService();
+  const walkingQuestions = await walkingService.getGroupQuestions(walkingGroupId);
+  const walkingUsers = await walkingService.getWalkingUsers(walkingGroupId);
+
+  sessionStorage.setItem("walkingActiveQuestionNum", "0");
+  sessionStorage.setItem(`walkingQuestions-${walkingGroupId}`, JSON.stringify(walkingQuestions));
+  sessionStorage.setItem(`walkingUsers-${walkingGroupId}`, JSON.stringify(walkingUsers));
+}
 
 const loadPageComponents = () => {
 

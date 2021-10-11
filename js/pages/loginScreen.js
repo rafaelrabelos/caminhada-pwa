@@ -81,9 +81,12 @@ const handleLogOffLinkClick = (e) => {
 }
 
 const handleStartBtnClick = (e) => {
-  let hasActiveSession = sessionStatus();
+  const walkingService = new WalkingService()
+  const hasActiveSession = sessionStatus();
 
   if(hasActiveSession == true){
+    //TO-DO Adds group selection/creation page
+    walkingService.createWalkingGroup();
     navegateToWalking();
   }else{
     loadPageComponents();

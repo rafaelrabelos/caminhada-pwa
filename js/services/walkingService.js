@@ -85,4 +85,17 @@ class WalkingService {
     });
   }
 
+  createWalkingGroup = () => {
+    let groupName = "DEFX3";
+    localStorage.setItem("walkingGroupId", "DEFX3");
+
+    return groupName;
+  }
+
+  joinWalkingGroup = (groupId) => {
+    localStorage.setItem("walkingGroupId", groupId);
+    
+    return groupId;
+  }
+
 }

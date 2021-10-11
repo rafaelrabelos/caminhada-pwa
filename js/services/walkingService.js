@@ -109,32 +109,36 @@ class WalkingService {
     const questionsStorageKeyName = `walkingQuestions-${walkingGroupId}`;
     const apiMockWalkingQuestions = [
       {
+        id: "001",
         question: "Você possui plano de saúde?",
         options: [
-          { answer: "Sim", value: 1 },
-          { answer: "Não", value: 0 },
+          { answer: "Sim", value: 1, answerId: "yes" },
+          { answer: "Não", value: 0, answerId: "no" },
         ],
       },
       {
+        id: "002",
         question: "Você possui ensino fundamental comleto?",
         options: [
-          { answer: "Sim", value: 1 },
-          { answer: "Não", value: 0 },
+          { answer: "Sim", value: 1, answerId: "yes" },
+          { answer: "Não", value: 0, answerId: "no" },
         ],
       },
       {
+        id: "003",
         question: "Você possui ensino médio comleto?",
         options: [
-          { answer: "Sim", value: 1 },
-          { answer: "Não", value: 0 },
+          { answer: "Sim", value: 1, answerId: "yes" },
+          { answer: "Não", value: 0, answerId: "no" },
         ],
       },
       {
+        id: "004",
         question: "Você cursa ou concluiu o ensino superior?",
         options: [
-          { answer: "Curso", value: 1 },
-          { answer: "Conclui", value: 2 },
-          { answer: "Não ingressei", value: -1 },
+          { answer: "Curso", value: 1, answerId: "yes-1" },
+          { answer: "Conclui", value: 2, answerId: "yes-2" },
+          { answer: "Não ingressei", value: -1, answerid: "no" },
         ],
       },
     ];
@@ -151,6 +155,20 @@ class WalkingService {
 
     localStorage.setItem(questionsStorageKeyName, JSON.stringify(apiMockWalkingQuestions));
     return apiMockWalkingQuestions;
+  }
+
+  updateQuestionAnwser = (groupId, userId, questionId, anwserId) => {
+    const anwserdata = {
+      groupId,
+      userId,
+      questionId,
+      anwserId
+    }
+    console.log(anwserdata);
+  }
+
+  getQuestionAnswer = (groupId, questionId) => {
+
   }
 
 }

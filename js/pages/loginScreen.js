@@ -35,7 +35,7 @@ const googleLoginOnSuccess = (gData) => {
   storeLocalData(gUserData);
   sessionInit();
 
-  if(sessionStatus() == true){
+  if(sessionStatus()){
     loadPageComponents();
   }
 };
@@ -81,9 +81,9 @@ const handleLogOffLinkClick = (e) => {
 }
 
 const handleStartBtnClick = (e) => {
-  let statusSession = sessionStatus();
+  let hasActiveSession = sessionStatus();
 
-  if(statusSession == true){
+  if(hasActiveSession == true){
     navegateToWalking();
   }else{
     loadPageComponents();

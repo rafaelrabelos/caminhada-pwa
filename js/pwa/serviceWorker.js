@@ -34,9 +34,13 @@ self.addEventListener("fetch", (event) => {
   console.log("Caminhada ServiceWorker fetching ", event.request.url);
   
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      if (response) return response;
-      else return fetch(event.request);
+    caches.open(cache_name).then((cache) =>{
+      fetch(event.request)
+        .then((res) => {
+          cache.put(event.request, res.clone());
+        })
+        .catch(() => caches.match(event.request));
     })
+    
   );
 });

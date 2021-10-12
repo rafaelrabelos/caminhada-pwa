@@ -15,9 +15,14 @@ let urls_to_cache = [
 self.addEventListener("install", (event) => {
   console.log("Caminhada ServiceWorker install done!");
 
-  event.waitUntil(caches.open(cache_name).then((cache) => {
-    return cache.addAll(urls_to_cache)
-   }) )
+  event.waitUntil(
+    caches
+      .open(cache_name)
+      .then((cache) => {
+        return cache.addAll(urls_to_cache);
+      })
+      .catch((err) => console.log(err))
+  );
 
 });
 

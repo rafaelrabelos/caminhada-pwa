@@ -1,6 +1,7 @@
-let cache_name = 'caminhada-v0.16';
-let urls_to_cache = [
+const cache_name = 'caminhada-v0.16';
+const urls_to_cache = [
   '/',
+  '/manifest.webmanifest',
   '/index.html',
   '/walking.html',
   '/js/pages/loginScreen.js',
@@ -34,9 +35,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(cache_name)
-      .then((cache) => {
-        return cache.addAll(urls_to_cache);
-      })
+      .then((cache) => cache.addAll(urls_to_cache))
       .catch((err) => console.log(err))
   );
 
@@ -44,6 +43,18 @@ self.addEventListener("install", (event) => {
 
 self.addEventListener("activate", (event) => {
   console.log("Caminhada ServiceWorker activating done!");
+
+  e.waitUntil(
+    caches.keys().then((cacheKey) => {
+      Promise.all(
+        cacheKey.map((key) => {
+          if (key !== cache_name) {
+            return caches.delete(key);
+          }
+        })
+      );
+    })
+  );
 });
 
 self.addEventListener("fetch", (event) => {

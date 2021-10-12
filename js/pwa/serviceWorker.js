@@ -1,4 +1,4 @@
-const cache_name = 'caminhada-v0.16';
+const cache_name = 'caminhada-v0.17';
 const urls_to_cache = [
   '/',
   '/manifest.webmanifest',

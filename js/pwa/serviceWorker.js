@@ -4,7 +4,7 @@ let urls_to_cache = [
   '/index.html',
   '/walking.html',
   '/js/pages/loginScreen.js',
-  '/js/pages/walking',
+  '/js/pages/walking.js',
   '/js/pwa/config.js',
   '/js/services/walkingService.js',
   '/js/utils/gLoginOauth2.js',

@@ -1,0 +1,51 @@
+.logo {
+  border-radius: 50%;
+  opacity: 0.9;
+  width: 36%;
+}
+.logo img {
+  width: 100%;
+  height: auto;
+}
+.logo-sm {
+  width: 20%;
+  height: auto;
+}
+.logo-sm-x {
+  width: 25%;
+  height: auto;
+}
+.logo-md {
+  width: 30%;
+  height: auto;
+}
+.logo-md-x {
+  width: 35%;
+  height: auto;
+}
+.logo-xg {
+  width: 40%;
+  height: auto;
+}
+.logo-xgx {
+  width: 45%;
+  height: auto;
+}
+.logo-full {
+  width: 100%;
+  height: auto;
+}
+.logo-horizontal{
+  width: 65%;
+  display: flex;
+  float: left;
+  justify-content: flex-start;
+  align-items: center;
+}
+.logo-default{
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

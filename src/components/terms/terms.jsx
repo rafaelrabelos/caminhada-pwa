@@ -1,5 +1,5 @@
 import { __TEXTS, __LANG } from "../../utils/constants";
-import "./logo.css";
+import "./terms.css";
 
 const TermsAndConditions = (props) => {
   const texts = __TEXTS[__LANG].loginView;

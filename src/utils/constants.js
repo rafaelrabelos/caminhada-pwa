@@ -17,11 +17,16 @@ export const __TEXTS = {
     loginView:{
       presentation: `Responda algumas questões e descubra sua posição de privilégio social.`,
       acceptToStart: `Para iniciar a caminhada aceite os termos e condições.`,
+      logedInInfo: ``,
       acceptTerms: {
         accept: `Eu aceito os`,
         terms: `Termos de Uso`,
         policies: `Politica de Privacidade`,
       }
-    }
+    },
+    exit: `Sair`,
+    logOut: `Sair da conta`,
+    logedInAs: `Você está logado(a) como`,
+    userProfileImage: `Imagem de perfil do usuário`
   },
 };

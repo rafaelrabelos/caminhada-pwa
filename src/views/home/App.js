@@ -18,6 +18,17 @@ function App() {
   const [isLogged, setLogged] = useState(false);
   const [acceptedTerms, setTerms] = useState(false);
 
+  const googleLoginOnError = (err) => {
+    console.log(err);
+  };
+  const googleLoginOnSuccess = (gData) => {
+    console.log(gData);
+  };
+  
+  const googleLoginOnError = (err) => {
+    console.log(err);
+  };
+
   return (
     <div className="App">
       <div className="row-line">
@@ -62,7 +73,11 @@ function App() {
               className="row-line block-quarter"
               hidden={isLogged}
             >
-              <GoogleLoginButton onClick={(e) => setLogged(!isLogged)} />
+              <GoogleLoginButton
+                clientId="222678136207-qo63edavnp1l6t3kup868kqt96npccqj.apps.googleusercontent.com"
+                onSuccess={googleLoginOnSuccess}
+                onFailure={googleLoginOnError}
+              />
 
               <div id="login-info" className="texts-small">
                 <small>

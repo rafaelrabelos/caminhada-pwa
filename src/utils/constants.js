@@ -11,6 +11,7 @@ export const __TEXTS = {
     titleApp: `Meus privilegios`,
     titlePage: `Caminhada do privilégio`,
     buttons:{
+      googleLoginEnter: `Entrar`,
       enter: `Entrar`,
       start: `Iniciar`
     },

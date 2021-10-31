@@ -19,6 +19,16 @@ const sessionInit = () => {
   return session;
 };
 
+const sessionClear = () => {
+  sessionStorage.clear();
+  return session  
+}
+const localStorageClear = () => {
+  localStorage.clear()
+  return session  
+}
+const logOff = () => session.clearSession().clearStorage();
+
 const sessionStatus = () => {
   let status = true;
 
@@ -47,7 +57,7 @@ const localStorageHasData = () => {
   return status;
 };
 
-const storeLocalData = (data = dataTemplate) => {
+const localStorageSetData = (data = dataTemplate) => {
   localStorage.clear();
 
   Object.keys(data).forEach((dataItem) => {
@@ -65,10 +75,13 @@ const getStorageItem = (name = "") => localStorage.getItem(name);
 const session = {
   init: sessionInit,
   status: sessionStatus,
-  storeUser: storeLocalData,
+  storeUser: localStorageSetData,
   hasData: localStorageHasData,
   getSessionItem: getSessionItem,
-  getStorageItem: getStorageItem
+  getStorageItem: getStorageItem,
+  clearSession: sessionClear,
+  clearStorage: localStorageClear,
+  logOff: logOff
 };
 
 export default session;

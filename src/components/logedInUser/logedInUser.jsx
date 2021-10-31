@@ -30,6 +30,11 @@ const LogedInUser = (props) => {
   ${orientationClass[orientation || "default"]} 
   ${sizeClass[size || "default"]}`;
 
+  const handleNoLogOffCallback = (e) => {
+    sessionStorage.clear();
+    localStorage.clear();
+  };
+
   return (
     <div className={finalClass}>
       <img
@@ -42,7 +47,11 @@ const LogedInUser = (props) => {
           {texts.logedInAs} <b id="user-name">{userName}</b>
           <br />
         </small>{" "}
-        <a id="log-out" href="/#">
+        <a
+          id="log-out"
+          href="/#"
+          onClick={props.onLogoffClick || handleNoLogOffCallback}
+        >
           {texts.logOut}
         </a>
       </div>

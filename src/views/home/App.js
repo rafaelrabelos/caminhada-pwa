@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { __CONSTS, __TEXTS, __LANG } from "../../utils/constants";
-
+import session from "../../utils/session";
 import {
   Logo,
   TermsAndConditions,
@@ -15,18 +15,24 @@ function App() {
   const { orientations, sizes } = __CONSTS;
   const texts = __TEXTS[__LANG].loginView;
 
-  const [isLogged, setLogged] = useState(false);
+  const [isLogged, setLogged] = useState(session.status());
   const [acceptedTerms, setTerms] = useState(false);
 
-  const googleLoginOnError = (err) => {
-    console.log(err);
-  };
   const googleLoginOnSuccess = (gData) => {
-    console.log(gData);
+    const gUserData = {
+      userId: gData.getBasicProfile().getId(),
+      userName: gData.getBasicProfile().getName(),
+      userFamilyName: gData.getBasicProfile().getFamilyName(),
+      userGivenName: gData.getBasicProfile().getGivenName(),
+      userEmail: gData.getBasicProfile().getEmail(),
+      userImgaeUrl: gData.getBasicProfile().getImageUrl(),
+    };
+
+    setLogged(session.storeUser(gUserData).init().status());
   };
-  
+
   const googleLoginOnError = (err) => {
-    console.log(err);
+    console.log(err.error);
   };
 
   return (
@@ -52,7 +58,10 @@ function App() {
               hidden={!isLogged}
             >
               <LogedInUser
+                userName={session.getSessionItem("userName")}
+                userImageURL={session.getSessionItem("userImgaeUrl")}
                 orientation={orientations.vertical}
+                onLogoffClick ={() => setLogged(session.logOff().status()) }
                 size={sizes.md}
               />
               <StartButton

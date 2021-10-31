@@ -27,7 +27,7 @@ const Logo = (props) => {
       <div className={`logo  ${sizeClass[size || "default"]}`}>
         <img
           alt="Logo de diamante com uma coroa emcima"
-          src="assets/icones/android/mipmap-xxxhdpi/ic_launcher.png"
+          src="/assets/icones/android/mipmap-xxxhdpi/ic_launcher.png"
         />
       </div>
       <div className="texts-gray texts-title-upper">{texts.titleApp}</div>

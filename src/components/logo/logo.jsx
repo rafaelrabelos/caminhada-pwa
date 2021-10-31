@@ -18,7 +18,7 @@ const Logo = (props) => {
     [__CONSTS.sizes.md]: "logo-md",
     [__CONSTS.sizes.mdx]: "logo-md-x",
     [__CONSTS.sizes.xg]: "logo-xg",
-    [__CONSTS.sizes.xgx]: "logo-xgx",
+    [__CONSTS.sizes.xgx]: "logo-xg-x",
     [__CONSTS.sizes.full]: "logo-full",
   };
 

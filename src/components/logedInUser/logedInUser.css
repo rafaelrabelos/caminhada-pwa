@@ -1,0 +1,55 @@
+.logedin-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0rem 1rem 0rem 1rem;
+}
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0.3rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 1rem;
+  transition: all 0.3s ease 0s;
+}
+.user-profile-vertical {
+  flex-direction: column;
+  align-items: center;
+}
+.user-profile-horizontal {
+  flex-direction: row;
+  align-items: initial;
+}
+.user-profile-sm img {
+  width: 10%;
+  height: 10%;
+}
+.user-profile-sm-x img {
+  width: 15%;
+  height: 15%;
+}
+.user-profile-md img {
+  width: 20%;
+  height: 20%;
+}
+.user-profile-md-x img {
+  width: 25%;
+  height: 25%;
+}
+.user-profile-xg img {
+  width: 30%;
+  height: 30%;
+}
+.user-profile-xg-x img {
+  width: 35%;
+  height: 35%;
+}
+.user-profile img,
+.user-profile-horizontal img,
+.user-profile-vertical img {
+  border-radius: 50%;
+  margin: 0.5rem;
+}

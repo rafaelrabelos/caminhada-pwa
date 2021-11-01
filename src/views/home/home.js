@@ -36,7 +36,7 @@ const Home = () => {
 
   const navigateToWalking = () => {
     if (session.status() && isLogged && acceptedTerms) {
-      window.location.href = "walking";
+      window.location.href = "groups";
     }
   };
 

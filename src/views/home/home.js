@@ -14,7 +14,7 @@ const Home = () => {
   const { orientations, sizes } = __CONSTS;
   const texts = __TEXTS[__LANG].loginView;
 
-  const [isLogged, setLogged] = useState(session.status());
+  const [isLogged, setLogged] = useState(session.init().status());
   const [acceptedTerms, setTerms] = useState(false);
 
   const googleLoginOnSuccess = (gData) => {
@@ -35,11 +35,10 @@ const Home = () => {
   };
 
   const navigateToWalking = () => {
-    if(session.status() && isLogged && acceptedTerms ){
-      console.log("Tudo OK");
-      window.location.href = 'walking';
+    if (session.status() && isLogged && acceptedTerms) {
+      window.location.href = "walking";
     }
-  }
+  };
 
   return (
     <div className="App">
@@ -67,7 +66,7 @@ const Home = () => {
                 userName={session.getSessionItem("userName")}
                 userImageURL={session.getSessionItem("userImgaeUrl")}
                 orientation={orientations.vertical}
-                onLogoffClick ={() => setLogged(session.logOff().status()) }
+                onLogoffClick={() => setLogged(session.logOff().status())}
                 size={sizes.md}
               />
               <StartButton
@@ -116,6 +115,6 @@ const Home = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Home;

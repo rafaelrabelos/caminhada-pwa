@@ -2,7 +2,7 @@ import { Route } from "react-router-dom";
 import React from "react";
 
 // Pages
-import { Home } from "./views";
+import { Home, Walking } from "./views";
 
 const authRoutes = [
   {
@@ -18,7 +18,7 @@ const walkingRoutes = [
     layout: "/app",
     page: "/walking",
     nome: "walking",
-    component: Home,
+    component: Walking,
   },
 ];
 

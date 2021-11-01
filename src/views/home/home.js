@@ -37,7 +37,7 @@ const Home = () => {
   const navigateToWalking = () => {
     if(session.status() && isLogged && acceptedTerms ){
       console.log("Tudo OK");
-      window.location.href = './walking.html';
+      window.location.href = 'walking';
     }
   }
 

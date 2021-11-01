@@ -23,7 +23,17 @@ export const __TEXTS = {
         accept: `Eu aceito os`,
         terms: `Termos de Uso`,
         policies: `Politica de Privacidade`,
-      }
+      },
+    },
+    walkingView:{
+      presentation: `Responda algumas questões e descubra sua posição de privilégio social.`,
+      acceptToStart: `Para iniciar a caminhada aceite os termos e condições.`,
+      logedInInfo: ``,
+      acceptTerms: {
+        accept: `Eu aceito os`,
+        terms: `Termos de Uso`,
+        policies: `Politica de Privacidade`,
+      },
     },
     exit: `Sair`,
     logOut: `Sair da conta`,

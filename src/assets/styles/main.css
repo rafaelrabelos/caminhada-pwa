@@ -135,3 +135,6 @@ hr {
 .cell-11 {width: 91.66%;}
 .cell-12 {width: 100%;}
 
+.profile-user-image{
+border-radius: 50%;
+}

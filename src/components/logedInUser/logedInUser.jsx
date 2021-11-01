@@ -52,7 +52,7 @@ const LogedInUser = (props) => {
         </small>{" "}
         <a
           id="log-out"
-          href="/#"
+          href="/"
           onClick={props.onLogoffClick || handleNoLogOffCallback}
         >
           {texts.logOut}

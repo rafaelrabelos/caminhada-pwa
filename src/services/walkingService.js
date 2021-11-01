@@ -65,7 +65,7 @@ class WalkingService {
     for (let userIdx = 0; userIdx < apiMockUsers.length; userIdx++) {
       const user = apiMockUsers[userIdx];
 
-      if(user.userId == sessionStorage.getItem("userId"))
+      if(user.userId === sessionStorage.getItem("userId"))
       continue;
       
       apiMockUsers[userIdx] = await this.mockUserInfo(user);
@@ -84,7 +84,7 @@ class WalkingService {
 
       request.onload = () => {
         if (
-          request.status == 200 &&
+          request.status === 200 &&
           request.response &&
           request.response.results.length > 0
         ) {
@@ -255,7 +255,7 @@ class WalkingService {
     const questions = JSON.parse(
       sessionStorage.getItem(`walkingQuestions-${groupId}`)
     );
-    const questionOptions = questions.filter((q) => q.id == questionId)[0]
+    const questionOptions = questions.filter((q) => q.id === questionId)[0]
       .options;
 
     usersId.forEach(userId => {

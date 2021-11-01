@@ -37,6 +37,8 @@ Dentre todos os dados das perguntas que serão armazenados, alguns são de maior
 - A aplicação é original e não uma cópia da aplicação de um colega ou de uma aplicação já existente? **Sim**
 - A aplicação tem pelo menos duas interfaces (telas ou páginas) independentes? **Sim**
 - A aplicação armazena e usa de forma relevante dados complexos do usuário? **Sim**
+- A aplicação foi desenvolvida com o React? **Sim**
+- A aplicação contém pelo menos dois componentes React além do componente principal? **Sim**
 - A aplicação possui um manifesto para instalação no dispositivo do usuário? **Sim**
 - A aplicação possui um _service worker_ que permite o funcionamento off-line? **Sim**
 - O código da minha aplicação possui comentários explicando cada operação? **Não** Foram utilizadas práticas de codificação limpa que torna o código mais legível e auto explicativo, reduzindo a necessidade de explicar as coisas por comentários, mas usando quando se trata de regras específicas do negócio.

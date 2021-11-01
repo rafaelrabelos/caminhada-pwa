@@ -9,7 +9,6 @@ import {
   LogedInUser,
   Fade,
 } from "../../components";
-import "../../assets/styles/main.css";
 
 const Home = () => {
   const { orientations, sizes } = __CONSTS;

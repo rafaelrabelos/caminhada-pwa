@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import DefaulLayout from "./layouts/default";
 import * as serviceWorkerRegistration from "./config/pwa/serviceWorkerRegistration";
 import reportWebVitals from "./config/testing/reportWebVitals";
-import "./assets/styles/index.css";
+import "./assets/styles/main.css";
 
 ReactDOM.render(
   <React.StrictMode>

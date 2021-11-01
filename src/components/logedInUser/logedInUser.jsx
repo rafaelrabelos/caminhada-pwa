@@ -37,11 +37,14 @@ const LogedInUser = (props) => {
 
   return (
     <div className={finalClass}>
-      <img
-        alt={`${texts.userProfileImage} ${userName || ""}`}
-        id="user-image"
-        src={userImageURL || undefinedUserImage}
-      />
+      {
+        userImageURL && (<img
+          alt={`${texts.userProfileImage} ${userName || ""}`}
+          id="user-image"
+          src={userImageURL || undefinedUserImage}
+        />)
+      }
+      
       <div id="logedin-info" className="texts-small logedin-info">
         <small>
           {logedMsg || texts.logedInAs } <b id="user-name">{userName}</b>

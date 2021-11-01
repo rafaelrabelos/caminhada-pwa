@@ -41,6 +41,7 @@
   float: left;
   justify-content: flex-start;
   align-items: center;
+  text-align: left;
 }
 .logo-default{
   width: 65%;

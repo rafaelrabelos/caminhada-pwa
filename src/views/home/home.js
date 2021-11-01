@@ -13,6 +13,9 @@ import {
 const Home = () => {
   const { orientations, sizes } = __CONSTS;
   const texts = __TEXTS[__LANG].loginView;
+  const googleClientId =
+    process.env.REACT_APP_G_CLIENT_ID ||
+    "222678136207-qo63edavnp1l6t3kup868kqt96npccqj.apps.googleusercontent.com";
 
   const [isLogged, setLogged] = useState(session.init().status());
   const [acceptedTerms, setTerms] = useState(false);
@@ -88,7 +91,7 @@ const Home = () => {
               hidden={isLogged}
             >
               <GoogleLoginButton
-                clientId="222678136207-qo63edavnp1l6t3kup868kqt96npccqj.apps.googleusercontent.com"
+                clientId={googleClientId}
                 onSuccess={googleLoginOnSuccess}
                 onFailure={googleLoginOnError}
               />

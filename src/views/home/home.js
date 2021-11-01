@@ -11,7 +11,7 @@ import {
 } from "../../components";
 import "../../assets/styles/main.css";
 
-function App() {
+const Home = () => {
   const { orientations, sizes } = __CONSTS;
   const texts = __TEXTS[__LANG].loginView;
 
@@ -34,6 +34,13 @@ function App() {
   const googleLoginOnError = (err) => {
     console.log(err.error);
   };
+
+  const navigateToWalking = () => {
+    if(session.status() && isLogged && acceptedTerms ){
+      console.log("Tudo OK");
+      window.location.href = './walking.html';
+    }
+  }
 
   return (
     <div className="App">
@@ -66,7 +73,7 @@ function App() {
               />
               <StartButton
                 disabled={!acceptedTerms}
-                onClick={(e) => setLogged(!isLogged)}
+                onClick={navigateToWalking}
               />
               <div id="start-info" className="texts-small">
                 <small className="texts-gray texts-small">
@@ -112,4 +119,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

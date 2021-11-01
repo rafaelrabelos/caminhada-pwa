@@ -1,6 +1,5 @@
-import Index from './home/App';
+import Home from './home/home';
 
 export {
-  Index,
-  Index as App
+  Home,
 } 

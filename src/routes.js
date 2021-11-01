@@ -2,14 +2,14 @@ import { Route } from "react-router-dom";
 import React from "react";
 
 // Pages
-import { App } from "./views";
+import { Home } from "./views";
 
 const authRoutes = [
   {
     layout: "/app",
     page: "/login",
     nome: "Login",
-    component: App,
+    component: Home,
   },
 ];
 
@@ -18,7 +18,7 @@ const walkingRoutes = [
     layout: "/app",
     page: "/walking",
     nome: "walking",
-    component: App,
+    component: Home,
   },
 ];
 

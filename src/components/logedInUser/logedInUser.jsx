@@ -4,7 +4,7 @@ import undefinedUserImage from "./assets/images/undefined-user.png";
 import "./logedInUser.css";
 
 const LogedInUser = (props) => {
-  const { orientation, size } = props;
+  const { logedMsg, orientation, size } = props;
   const texts = __TEXTS[__LANG];
 
   const { userName, userImageURL } = props;
@@ -44,7 +44,7 @@ const LogedInUser = (props) => {
       />
       <div id="logedin-info" className="texts-small logedin-info">
         <small>
-          {texts.logedInAs} <b id="user-name">{userName}</b>
+          {logedMsg || texts.logedInAs } <b id="user-name">{userName}</b>
           <br />
         </small>{" "}
         <a
